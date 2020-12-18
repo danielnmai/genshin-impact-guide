@@ -10,17 +10,17 @@ import {
   Text,
 } from 'native-base';
 import styled from 'styled-components';
-import {Avatar} from '../components';
+import { Avatar } from '../components';
 
 const dataArray = [
-  {title: 'DPS', content: ''},
-  {title: 'Support', content: ''},
+  { title: 'DPS', content: '' },
+  { title: 'Support', content: '' },
 ];
 
-const CharacterDetail = ({route}) => {
-  const {data} = route.params;
+const CharacterDetail = ({ route }) => {
+  const { data } = route.params;
 
-  const {dps, support} = data;
+  const { dps, support } = data;
 
   console.log('data in c detail ', data);
   const renderContent = () => {
@@ -76,8 +76,8 @@ const CharacterDetail = ({route}) => {
         dataArray={dataArray}
         icon="add"
         expandedIcon="remove"
-        headerStyle={{backgroundColor: '#b7daf8'}}
-        contentStyle={{backgroundColor: '#fff'}}
+        headerStyle={{ backgroundColor: '#b7daf8' }}
+        contentStyle={{ backgroundColor: '#fff' }}
         renderContent={renderContent}
       />
     </Container>
