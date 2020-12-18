@@ -89,9 +89,7 @@ const CharacterData = [
             "Use Retracing Bolide (Full set) if you can keep a shield on him, difficult to maintain which is why it's placed second.",
         },
         {
-          name: `Hourglass - ATK %{'\n'}
-          Goblet - Hydro %{'\n'}
-          Headgear - Crit %{'\n'}`,
+          name: `\nHourglass - ATK \nGoblet - Hydro\nHeadgear - Crit\n`,
         },
         {
           name:
