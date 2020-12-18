@@ -20,7 +20,7 @@ const CharacterDetail = ({ route }) => {
   const { dps, support } = data;
 
   const [role, setRole] = useState({});
-  
+
   const renderContent = (content) => {
     return (
       <Content>
@@ -30,42 +30,42 @@ const CharacterDetail = ({ route }) => {
             <>
               <>
                 <H2>Weapon</H2>
-                {role.weapon.map((field, index) => (
-                  <Text key={index}>{field.name}</Text>
+                {role.weapon.map((item, index) => (
+                  <Text key={index}>{item}</Text>
                 ))}
               </>
               <>
                 <H2>Artifact</H2>
-                {role.artifact.map((field, index) => (
-                  <Text key={index}>{field.name}</Text>
+                {role.artifact.map((item, index) => (
+                  <Text key={index}>{item}</Text>
                 ))}
               </>
               <>
                 <H2>Stats Priority</H2>
                 <>
                   <H3>Early Game</H3>
-                  {role.statPriority.earlyGame.map((field, index) => (
-                    <Text key={index}>{field.name}</Text>
+                  {role.statPriority.earlyGame.map((item, index) => (
+                    <Text key={index}>{item}</Text>
                   ))}
                 </>
                 <>
                   <H3>Late Game</H3>
-                  {role.statPriority.lateGame.map((field, index) => (
-                    <Text key={index}>{field.name}</Text>
+                  {role.statPriority.lateGame.map((item, index) => (
+                    <Text key={index}>{item}</Text>
                   ))}
                 </>
               </>
               <>
                 <H2>Talent Priority</H2>
-                {role.talentPriority.map((field, index) => (
-                  <Text key={index}>{field.name}</Text>
+                {role.talentPriority.map((item, index) => (
+                  <Text key={index}>{item}</Text>
                 ))}
               </>
               <>
                 <>
                   <H2>Notes</H2>
-                  {role.notes.map((field, index) => (
-                    <Text key={index}>{field.name}</Text>
+                  {role.notes.map((item, index) => (
+                    <Text key={index}>{item}</Text>
                   ))}
                 </>
               </>
