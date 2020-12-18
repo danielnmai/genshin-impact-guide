@@ -17,8 +17,9 @@ const StyledImage = styled(Image)`
   width: 80%;
 `;
 
-const Avatar = () => {
+const Avatar = ({data}) => {
   const navigation = useNavigation();
+  console.log('avata data ', data);
   return (
     <Container>
       <Content>
@@ -27,7 +28,10 @@ const Avatar = () => {
             cardBody
             button
             onPress={() =>
-              navigation.navigate('CharacterDetail', {name: 'Character Guide'})
+              navigation.navigate('CharacterDetail', {
+                name: 'Character Guide',
+                data,
+              })
             }>
             <StyledImage source={avatar} resizeMode="contain" />
           </StyledCardItem>
