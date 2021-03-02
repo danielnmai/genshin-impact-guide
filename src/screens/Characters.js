@@ -6,7 +6,6 @@ import { Avatar } from '../components';
 import CharacterData from '../data/CharacterData';
 
 const StyledColumn = styled(Col)`
-  background-color: orange;
   height: 160px;
 `;
 
@@ -15,25 +14,24 @@ const renderRow = (charRow, index) => {
   return (
     <Grid key={index}>
       <StyledColumn>
-        <Avatar data={charRow[0]} />
+        <Avatar data={charRow.length >= 1 ? charRow[0] : null} />
       </StyledColumn>
       <StyledColumn>
-        <Avatar data={charRow[1]} />
+        <Avatar data={charRow.length >= 2 ? charRow[1] : null} />
       </StyledColumn>
       <StyledColumn>
-        <Avatar data={charRow[2]} />
+        <Avatar data={charRow.length === 3 ? charRow[2] : null} />
       </StyledColumn>
     </Grid>
   );
 };
 const Characters = () => {
-  // const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const dataWithRows = [];
 
-  console.log('data ', CharacterData[0]);
-
   while (CharacterData.length) {
-    dataWithRows.push(CharacterData.splice(0, 3));
+    // dataWithRows = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    dataWithRows.push(CharacterData.splice(0, 3)); 
   }
   return (
     <Container>
