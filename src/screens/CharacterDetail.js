@@ -23,7 +23,7 @@ const CharacterDetail = ({ route }) => {
 
   const renderContent = (content) => {
     return (
-      <Content>
+      <Content padder>
         {
           !isEmpty(role) &&
           (

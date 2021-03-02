@@ -1,8 +1,8 @@
 import React from 'react';
-import {Container, Header, Content, Text} from 'native-base';
-import {Col, Row, Grid} from 'react-native-easy-grid';
+import { Container, Header, Content, Text } from 'native-base';
+import { Col, Row, Grid } from 'react-native-easy-grid';
 import styled from 'styled-components';
-import {Avatar} from '../components';
+import { Avatar } from '../components';
 import CharacterData from '../data/CharacterData';
 
 const StyledColumn = styled(Col)`

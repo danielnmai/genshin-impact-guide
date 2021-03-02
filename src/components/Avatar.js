@@ -1,10 +1,10 @@
 import React from 'react';
-import {Image} from 'react-native';
-import {Container, Content, Card, CardItem} from 'native-base';
+import { Image } from 'react-native';
+import { Container, Content, Card, CardItem } from 'native-base';
 import styled from 'styled-components';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
-import avatar from '../assets/avatars/Childe.png';
+import AvatarCollection from '../data/AvatarCollection';
 
 const StyledCardItem = styled(CardItem)`
   flex: 1;
@@ -17,9 +17,10 @@ const StyledImage = styled(Image)`
   width: 80%;
 `;
 
-const Avatar = ({data}) => {
+const Avatar = ({ data }) => {
   const navigation = useNavigation();
-  console.log('avata data ', data);
+  console.log('avata data ', data.avatar);
+  const avatar = data.avatar;
   return (
     <Container>
       <Content>
@@ -33,7 +34,7 @@ const Avatar = ({data}) => {
                 data,
               })
             }>
-            <StyledImage source={avatar} resizeMode="contain" />
+            <StyledImage source={AvatarCollection[data.name]} resizeMode="contain" />
           </StyledCardItem>
         </Card>
       </Content>
