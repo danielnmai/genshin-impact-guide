@@ -9,6 +9,10 @@ const StyledColumn = styled(Col)`
   height: 160px;
 `;
 
+const StyledContainer = styled(Container)`
+  
+`;
+
 const renderRow = (charRow, index) => {
   console.log('charRow', charRow);
   return (
@@ -34,11 +38,11 @@ const Characters = () => {
     dataWithRows.push(CharacterData.splice(0, 3)); 
   }
   return (
-    <Container>
+    <StyledContainer>
       <Content>
         {dataWithRows.map((charRow, index) => renderRow(charRow, index))}
       </Content>
-    </Container>
+    </StyledContainer>
   );
 };
 

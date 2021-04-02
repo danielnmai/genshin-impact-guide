@@ -3,8 +3,11 @@ import { Image, Text } from 'react-native';
 import { Container, Content, Card, CardItem } from 'native-base';
 import styled from 'styled-components';
 import { useNavigation } from '@react-navigation/native';
+import { capitalize } from 'lodash';
 
 import AvatarCollection from '../data/AvatarCollection';
+
+const StyledContainer = styled(Container)``;
 
 const StyledCardItem = styled(CardItem)`
   flex: 1;
@@ -19,13 +22,17 @@ const StyledImage = styled(Image)`
   height: 80%;
 `;
 
+const StyledContent = styled(Content)``;
+
+const StyledCard = styled(Card)``;
+
 const Avatar = ({ data }) => {
   const navigation = useNavigation();
   return (
     data &&
-    <Container>
-      <Content>
-        <Card transparent>
+    <StyledContainer>
+      <StyledContent>
+        <StyledCard transparent>
           <StyledCardItem
             cardBody
             button
@@ -36,11 +43,11 @@ const Avatar = ({ data }) => {
               })
             }>
             <StyledImage source={AvatarCollection[data.name]} resizeMode="contain" />
-            <Text>{data.name}</Text>
+            <Text>{capitalize(data.name)}</Text>
           </StyledCardItem>
-        </Card>
-      </Content>
-    </Container>
+        </StyledCard>
+      </StyledContent>
+    </StyledContainer>
   );
 };
 

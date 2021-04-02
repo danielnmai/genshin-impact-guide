@@ -18,8 +18,11 @@ const dataArray = [
 const CharacterDetail = ({ route }) => {
   const { data } = route.params;
   const { dps, support } = data;
+  console.log('support ', support);
 
   const [role, setRole] = useState({});
+
+  console.log('role ', role);
 
   const renderContent = (content) => {
     return (
@@ -43,14 +46,14 @@ const CharacterDetail = ({ route }) => {
               <>
                 <H2>Stats Priority</H2>
                 <>
-                  <H3>Early Game</H3>
-                  {role.statPriority.earlyGame.map((item, index) => (
+                  <H3>Main Stats</H3>
+                  {role.statPriority.mainStats.map((item, index) => (
                     <Text key={index}>{item}</Text>
                   ))}
                 </>
                 <>
-                  <H3>Late Game</H3>
-                  {role.statPriority.lateGame.map((item, index) => (
+                  <H3>Substats</H3>
+                  {role.statPriority.subStats.map((item, index) => (
                     <Text key={index}>{item}</Text>
                   ))}
                 </>
