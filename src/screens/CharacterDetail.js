@@ -6,7 +6,9 @@ import {
   H2,
   H3,
   Text,
+  Icon,
 } from 'native-base';
+import { View } from 'react-native';
 import styled from 'styled-components';
 import { isEmpty } from 'lodash';
 
@@ -23,6 +25,25 @@ const CharacterDetail = ({ route }) => {
   const [role, setRole] = useState({});
 
   console.log('role ', role);
+
+  const renderHeader = (item, expanded) => {
+    return (
+      <View style={{
+        flexDirection: "row",
+        padding: 10,
+        justifyContent: "space-between",
+        alignItems: "center" ,
+        backgroundColor: "#A9DAD6" }}>
+      <Text style={{ fontWeight: "600" }}>
+          {" "}{item.title}
+        </Text>
+        {expanded
+          ? <Icon style={{ fontSize: 18 }} name="remove-circle" />
+          : <Icon style={{ fontSize: 18 }} name="add-circle" />}
+      </View>
+    )
+
+  }
 
   const renderContent = (content) => {
     return (
@@ -85,9 +106,11 @@ const CharacterDetail = ({ route }) => {
         dataArray={dataArray}
         icon="add"
         expandedIcon="remove"
+        expanded={[]}
         headerStyle={{ backgroundColor: '#b7daf8' }}
         contentStyle={{ backgroundColor: '#fff' }}
         renderContent={renderContent}
+        renderHeader={renderHeader}
         onAccordionOpen={(item) => setRole(item.title === 'DPS' ? dps : support )}
         onAccordionClose={(item) => setRole({})}
       />
