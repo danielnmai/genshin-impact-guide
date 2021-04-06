@@ -1,20 +1,19 @@
 import React from 'react';
-import { Container, Header, Content, Text } from 'native-base';
-import { Col, Row, Grid } from 'react-native-easy-grid';
+import { Container, Content } from 'native-base';
+import { Col, Grid } from 'react-native-easy-grid';
 import styled from 'styled-components';
 import { Avatar } from '../components';
-import CharacterData from '../data/CharacterData';
+
+import allCharacters from '../data/allCharacters.json';
 
 const StyledColumn = styled(Col)`
   height: 160px;
 `;
 
-const StyledContainer = styled(Container)`
-  
-`;
+const StyledContainer = styled(Container)``;
 
 const renderRow = (charRow, index) => {
-  console.log('charRow', charRow);
+
   return (
     <Grid key={index}>
       <StyledColumn>
@@ -32,10 +31,11 @@ const renderRow = (charRow, index) => {
 const Characters = () => {
   // data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const dataWithRows = [];
+  let allCharactersCopy = [...allCharacters];
 
-  while (CharacterData.length) {
+  while (allCharactersCopy.length) {
     // dataWithRows = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-    dataWithRows.push(CharacterData.splice(0, 3)); 
+    dataWithRows.push(allCharactersCopy.splice(0, 3)); 
   }
   return (
     <StyledContainer>

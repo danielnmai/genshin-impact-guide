@@ -38,7 +38,7 @@ const Avatar = ({ data }) => {
             button
             onPress={() =>
               navigation.navigate('CharacterDetail', {
-                name: 'Character Guide',
+                name: capitalize(data.name),
                 data,
               })
             }>
