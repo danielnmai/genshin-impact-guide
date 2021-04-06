@@ -28,13 +28,13 @@ const Home = ({ navigation }) => {
 			<StyledButton onPress={() => navigation.navigate('Characters')}>
         <StyledText>Characters Guide</StyledText>
       </StyledButton>
-			{/* <StyledButton>
+			<StyledButton>
         <StyledText>Resin Reminder</StyledText>
       </StyledButton>
       <Footer />   
       <StyledButton>
         <StyledText>Disclaimer</StyledText>
-      </StyledButton>    */}
+      </StyledButton>   
 		</StyledContainer>
 	);
 }
