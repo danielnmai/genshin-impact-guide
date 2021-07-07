@@ -19,6 +19,7 @@ export default {
   "mona": require("../assets/avatars/mona.png"),
   "ningguang": require("../assets/avatars/ningguang.png"),
   "noelle": require("../assets/avatars/noelle.png"),
+  "qiqi": require("../assets/avatars/qiqi.png"),
   "razor": require("../assets/avatars/razor.png"),
   "succrose": require("../assets/avatars/succrose.png"),
   "tartaglia": require("../assets/avatars/tartaglia.png"),

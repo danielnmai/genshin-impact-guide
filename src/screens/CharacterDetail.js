@@ -6,7 +6,9 @@ import {
   H2,
   H3,
   Text,
+  Icon,
 } from 'native-base';
+import { View } from 'react-native';
 import styled from 'styled-components';
 import { isEmpty } from 'lodash';
 
@@ -18,8 +20,30 @@ const dataArray = [
 const CharacterDetail = ({ route }) => {
   const { data } = route.params;
   const { dps, support } = data;
+  console.log('support ', support);
 
   const [role, setRole] = useState({});
+
+  console.log('role ', role);
+
+  const renderHeader = (item, expanded) => {
+    return (
+      <View style={{
+        flexDirection: "row",
+        padding: 10,
+        justifyContent: "space-between",
+        alignItems: "center" ,
+        backgroundColor: "#A9DAD6" }}>
+      <Text style={{ fontWeight: "600" }}>
+          {" "}{item.title}
+        </Text>
+        {expanded
+          ? <Icon style={{ fontSize: 18 }} name="remove-circle" />
+          : <Icon style={{ fontSize: 18 }} name="add-circle" />}
+      </View>
+    )
+
+  }
 
   const renderContent = (content) => {
     return (
@@ -43,14 +67,14 @@ const CharacterDetail = ({ route }) => {
               <>
                 <H2>Stats Priority</H2>
                 <>
-                  <H3>Early Game</H3>
-                  {role.statPriority.earlyGame.map((item, index) => (
+                  <H3>Main Stats</H3>
+                  {role.statPriority.mainStats.map((item, index) => (
                     <Text key={index}>{item}</Text>
                   ))}
                 </>
                 <>
-                  <H3>Late Game</H3>
-                  {role.statPriority.lateGame.map((item, index) => (
+                  <H3>Substats</H3>
+                  {role.statPriority.subStats.map((item, index) => (
                     <Text key={index}>{item}</Text>
                   ))}
                 </>
@@ -82,9 +106,11 @@ const CharacterDetail = ({ route }) => {
         dataArray={dataArray}
         icon="add"
         expandedIcon="remove"
+        expanded={[]}
         headerStyle={{ backgroundColor: '#b7daf8' }}
         contentStyle={{ backgroundColor: '#fff' }}
         renderContent={renderContent}
+        renderHeader={renderHeader}
         onAccordionOpen={(item) => setRole(item.title === 'DPS' ? dps : support )}
         onAccordionClose={(item) => setRole({})}
       />

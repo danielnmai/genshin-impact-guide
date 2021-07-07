@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Button, Text, Container, Footer } from 'native-base';
 import styled from 'styled-components';
+import allCharacters from '../data/allCharacters.json';
 
 const StyledContainer = styled(Container)`
   flex: 1;
@@ -30,7 +31,7 @@ const Home = ({ navigation }) => {
 			<StyledButton>
         <StyledText>Resin Reminder</StyledText>
       </StyledButton>
-      <Footer></Footer>   
+      <Footer />   
       <StyledButton>
         <StyledText>Disclaimer</StyledText>
       </StyledButton>   

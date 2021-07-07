@@ -1,13 +1,17 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, Text } from 'react-native';
 import { Container, Content, Card, CardItem } from 'native-base';
 import styled from 'styled-components';
 import { useNavigation } from '@react-navigation/native';
+import { capitalize } from 'lodash';
 
 import AvatarCollection from '../data/AvatarCollection';
 
+const StyledContainer = styled(Container)``;
+
 const StyledCardItem = styled(CardItem)`
   flex: 1;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 150px;
@@ -15,30 +19,35 @@ const StyledCardItem = styled(CardItem)`
 
 const StyledImage = styled(Image)`
   width: 80%;
+  height: 80%;
 `;
+
+const StyledContent = styled(Content)``;
+
+const StyledCard = styled(Card)``;
 
 const Avatar = ({ data }) => {
   const navigation = useNavigation();
-  console.log('avata data ', data.avatar);
-  const avatar = data.avatar;
   return (
-    <Container>
-      <Content>
-        <Card transparent>
+    data &&
+    <StyledContainer>
+      <StyledContent>
+        <StyledCard transparent>
           <StyledCardItem
             cardBody
             button
             onPress={() =>
               navigation.navigate('CharacterDetail', {
-                name: 'Character Guide',
+                name: capitalize(data.name),
                 data,
               })
             }>
             <StyledImage source={AvatarCollection[data.name]} resizeMode="contain" />
+            <Text>{capitalize(data.name)}</Text>
           </StyledCardItem>
-        </Card>
-      </Content>
-    </Container>
+        </StyledCard>
+      </StyledContent>
+    </StyledContainer>
   );
 };
 
